@@ -5,6 +5,10 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
+import org.apache.maven.plugins.annotations.Parameter;
+import org.eclipse.sisu.Parameters;
+
+import java.util.List;
 
 /**
  * @author ZhengYingDeng
@@ -13,23 +17,15 @@ import org.apache.maven.plugins.annotations.Mojo;
  **/
 @Mojo(name = "ad", defaultPhase = LifecyclePhase.PACKAGE)
 public class ADMojo extends AbstractMojo {
+
+    @Parameter
+    private String msg;
+
+    @Parameter
+    private List<String> options;
+
     public void execute() throws MojoExecutionException, MojoFailureException {
-        System.out.println("Maven Plugin");
-    }
-
-    public static void main(String[] args) {
-        Integer a = 1;
-        Integer b = 1;
-        if (a.equals(b)) {
-            System.out.println("no");
-        }else {
-            System.out.println("yes");
-        }
-
-        if (a != b) {
-            System.out.println("yes");
-        }else {
-            System.out.println("no");
-        }
+        System.out.println("Maven Plugin!" + msg);
+        System.out.println("Maven Plugin!" + options);
     }
 }
